@@ -11,7 +11,7 @@ const SingleRow = (props) => {
   const getDocuments = async (garden = "", grade = "") => {
     try {
       const documents = await axios.post(
-        process.env.NEXT_PUBLIC_BASE_URL + "documents",
+        "https://backend.magicloans.in/" + "documents",
         { garden: garden, grades: [grade], index: 0 }
       );
       return documents;
@@ -25,7 +25,7 @@ const SingleRow = (props) => {
         return
       }
       const gradeList = await axios.post(
-        process.env.NEXT_PUBLIC_BASE_URL + "grades",
+        "https://backend.magicloans.in/" + "grades",
         { garden: garden }
       );
       setGradeList(gradeList.data);

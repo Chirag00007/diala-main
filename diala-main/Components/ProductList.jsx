@@ -12,7 +12,7 @@ const ProductList = (props) => {
     const getPackingDetails = async (item = "", id) => {
         try {
           const itemInfo = await axios.post(
-            process.env.NEXT_PUBLIC_BASE_URL + "item-detail",
+            "https://backend.magicloans.in/" + "item-detail",
             { item_name: item }
           );
           const data = itemInfo.data

@@ -28,7 +28,7 @@ const Page = () => {
   const getGardens = async () => {
     try {
       const gardenList = await axios.get(
-        process.env.NEXT_PUBLIC_BASE_URL + "gardens"
+        "https://backend.magicloans.in/" + "gardens"
       );
       setGardenList(gardenList?.data);
     } catch (e) {
@@ -39,7 +39,7 @@ const Page = () => {
   const getPackingItems = async () => {
     try {
       const packingList = await axios.get(
-        process.env.NEXT_PUBLIC_BASE_URL + "item-names"
+        "https://backend.magicloans.in/" + "item-names"
       );
       setPackingList(packingList?.data);
     } catch (e) {
@@ -52,7 +52,7 @@ const Page = () => {
   const getLastSynced = async () => {
     try {
       const response = await axios.get(
-        process.env.NEXT_PUBLIC_BASE_URL + "sync/last"
+        "https://backend.magicloans.in/" + "sync/last"
       );
       setLast(response);
     } catch (e) {
@@ -80,7 +80,7 @@ const Page = () => {
 
       if (!search) {
         const response = await axios.post(
-          process.env.NEXT_PUBLIC_BASE_URL + "creator/",
+          "https://backend.magicloans.in/" + "creator/",
           {
             data: {
               ...data,
@@ -98,7 +98,7 @@ const Page = () => {
         );
       } else {
         const response = await axios.put(
-          process.env.NEXT_PUBLIC_BASE_URL + "creator/" + search,
+          "https://backend.magicloans.in/" + "creator/" + search,
           {
             data: {
               ...data,
@@ -135,7 +135,7 @@ const Page = () => {
   const getEditData = async (id) => {
     try {
       const response = await axios.get(
-        process.env.NEXT_PUBLIC_BASE_URL + "creator/edit/" + id
+        "https://backend.magicloans.in/" + "creator/edit/" + id
       );
       response.data = formatData(response?.data);
       console.log(response.data.Subform, "tempList");
@@ -162,7 +162,7 @@ const Page = () => {
   const handleSync = async () => {
     try {
       const response = await axios.get(
-        process.env.NEXT_PUBLIC_BASE_URL + "sync"
+        "https://backend.magicloans.in/" + "sync"
       );
       toast.success("Successfully synced");
     } catch (e) {
